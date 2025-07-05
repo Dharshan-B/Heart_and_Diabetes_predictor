@@ -1,0 +1,4 @@
+__pycache__/
+*.sav
+*.pkl
+.env
