@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 40px 0;
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+  color: #333;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+h1 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 800px;  /* ← Make it wider */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  animation: slideUp 1s ease-in-out;
+}
+
+.form-group {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  #formArea {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 inputs per row */
+    gap: 20px;
+  }
+  .form-group {
+    align-items: flex-start;
+  }
+}
+
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+select, input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #2193b0;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #117a96;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #222;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}

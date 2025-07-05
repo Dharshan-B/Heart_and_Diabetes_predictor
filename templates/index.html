@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Disease Predictor</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>🩺 Smart Disease Predictor</h1>
+
+    <div class="card">
+      <label for="diseaseSelect">Choose Disease:</label>
+      <select id="diseaseSelect">
+        <option value="diabetes">🩸 Diabetes</option>
+        <option value="heart">❤️ Heart Disease</option>
+      </select>
+
+      <form id="formArea">
+        <!-- Inputs will be loaded here dynamically -->
+      </form>
+
+      <button onclick="predict()">🔍 Predict</button>
+      <p id="result"></p>
+    </div>
+  </div>
+
+  <script>
+    const formConfigs = {
+      diabetes: ["Pregnancies", "Glucose", "BloodPressure", "SkinThickness", "Insulin", "BMI", "DiabetesPedigreeFunction", "Age"],
+      heart: ["Age", "Sex", "ChestPainType", "RestingBP", "Cholesterol", "FastingBS", "RestingECG", "MaxHR", "ExerciseAngina", "Oldpeak", "ST_Slope"]
+    };
+
+    function createForm(disease) {
+      const form = document.getElementById('formArea');
+      form.innerHTML = '';
+      formConfigs[disease].forEach(field => {
+        form.innerHTML += `
+          <div class="form-group">
+            <label>${field}</label>
+            <input type="number" id="${field}" required />
+          </div>
+        `;
+      });
+    }
+
+    document.getElementById('diseaseSelect').addEventListener('change', function () {
+      createForm(this.value);
+    });
+
+    function predict() {
+      const disease = document.getElementById('diseaseSelect').value;
+      const fields = formConfigs[disease];
+      const values = fields.map(f => parseFloat(document.getElementById(f).value || 0));
+
+      fetch('/predict', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ type: disease, features: values })
+      })
+      .then(res => res.json())
+      .then(data => {
+        const resultText = disease === 'diabetes'
+          ? (data.result === 1 ? '⚠️ Diabetic' : '✅ Not Diabetic')
+          : (data.result === 1 ? '⚠️ Heart Disease Detected' : '✅ No Heart Disease');
+        document.getElementById('result').innerText = resultText;
+      });
+    }
+
+    // Default view
+    createForm('diabetes');
+  </script>
+</body>
+</html>
