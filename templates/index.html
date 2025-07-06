@@ -6,7 +6,10 @@
   <link rel="stylesheet" href="/static/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="hideWakeMessage()">
+  <div id="wake-message" class="wake-note">
+    ⚡️ Waking up the server... this may take a few seconds.
+  </div>
   <div class="container">
     <h1>🩺 Smart Disease Predictor</h1>
 
@@ -27,6 +30,11 @@
   </div>
 
   <script>
+    function hideWakeMessage() {
+    setTimeout(() => {
+      document.getElementById("wake-message").style.display = "none";
+    }, 5000); // Hide after 5 seconds
+  }
     const formConfigs = {
       diabetes: ["Pregnancies", "Glucose", "BloodPressure", "SkinThickness", "Insulin", "BMI", "DiabetesPedigreeFunction", "Age"],
       heart: ["Age", "Sex", "ChestPainType", "RestingBP", "Cholesterol", "FastingBS", "RestingECG", "MaxHR", "ExerciseAngina", "Oldpeak", "ST_Slope"]
