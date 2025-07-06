@@ -18,7 +18,7 @@ A web-based machine learning application that predicts the likelihood of **Diabe
 
 ## 🖼️ Preview
 
-![App Screenshot](https://drive.google.com/file/d/1F6Ke_w8D5ApuR1Hzq-G6JnU7c7fVZxJD/view?usp=sharing)
+![App Screenshot](/MLP.jpg)
 
 ---
 
@@ -40,16 +40,16 @@ A web-based machine learning application that predicts the likelihood of **Diabe
 
 ##  Project Structure 
 
-├── app.py
-├── train_models.py
-├── requirements.txt
-├── templates/
-│   └── index.html
-├── static/
-│   └── style.css
-├── models/
-│   ├── diabetes_model.sav
-│   └── heart_model.sav
+├── app.py<br>
+├── train_models.py<br>
+├── requirements.txt<br>
+├── templates/<br>
+│   └── index.html<br>
+├── static/<br>
+│   └── style.css<br>
+├── models/<br>
+│   ├── diabetes_model.sav<br>
+│   └── heart_model.sav<br>
 
 ---
 
