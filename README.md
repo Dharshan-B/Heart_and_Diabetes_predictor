@@ -9,6 +9,7 @@ A web-based machine learning application that predicts the likelihood of **Diabe
 - 🧠 Machine Learning prediction for:
   - Diabetes
   - Heart Disease
+  - Coming soon such as parkinsons disease,etc.,. (Collaboration needed for many disease and testing the site)
 - 💡 Simple and intuitive UI
 - 🎨 Responsive and modern design using HTML, CSS, and JS
 - 🚀 Deployed on Render
